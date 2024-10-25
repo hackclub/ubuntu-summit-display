@@ -1,6 +1,9 @@
 <!doctype html>
 <html style="height: 100%">
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
         <style>
             #message {
                 position: absolute;
@@ -23,6 +26,10 @@
         .wave-img {
            animation: wave 2s ease-in-out infinite;
            transform-origin: bottom center;
+        }
+        @keyframes bg-move {
+            from { background-position-x: 100% }
+            to { background-position-x: 0% }
         }
         </style>
     </head>
@@ -81,6 +88,11 @@
                 src="https://raw.githubusercontent.com/hackclub/dinosaurs/main/cooll-dino.png"
             />
           <img src="https://raw.githubusercontent.com/hackclub/nest/refs/heads/main/brand/logo.png" width="400" class="wave-img" style="position: absolute; top: 20px; right: 20px;">
+        </div>
+
+        <div style="position: absolute; left: 60%; bottom: 10%; transform: translateX(-50%) rotate(20deg); font-family: 'Comic Neue'">
+            <h1 style="font-size: 80px; margin-bottom: 10px; background: linear-gradient(150deg, #EC3750,#FA743E,#EC3750,#FA743E); background-size: 400% 100%; animation: bg-move 0.5s linear infinite; background-clip: text; -webkit-background-clip: text; -moz-background-clip: text; color: transparent">hack club ftw</h1>
+            <p style="margin: auto; text-align: center; font-size: 20px; font-weight: bold;">Gus was here</p>
         </div>
 
         <div id="message">Hackclub</div>
