@@ -15,22 +15,20 @@
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 font-size: 1.2em;
             }
-          
-         @keyframes wave {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(10deg); }
-            50% { transform: rotate(0deg); }
-            75% { transform: rotate(-10deg); }
-            100% { transform: rotate(0deg); }
-        }
-        .wave-img {
-           animation: wave 2s ease-in-out infinite;
-           transform-origin: bottom center;
-        }
-        @keyframes bg-move {
-            from { background-position-x: 100% }
-            to { background-position-x: 0% }
-        }
+
+            @keyframes wave {
+                0% { transform: rotate(0deg); }
+                25% { transform: rotate(10deg); }
+                50% { transform: rotate(0deg); }
+                75% { transform: rotate(-10deg); }
+                100% { transform: rotate(0deg); }
+            }
+            .wave-img {
+                animation: wave 2s ease-in-out infinite;
+                transform-origin: bottom center;
+            }
+
+            /* Removed the background move animation */
         </style>
     </head>
     <body
@@ -61,8 +59,6 @@
                     Your browser does not support the video tag.
                 </video>
                 <script>
-                    // Modern browsers require user interaction before allowing autoplay with sound
-                    // This attempts to unmute and set volume after a user interaction
                     document.addEventListener('click', function() {
                         const video = document.querySelector('video');
                         video.muted = false;
@@ -91,7 +87,9 @@
         </div>
 
         <div style="position: absolute; left: 60%; bottom: 10%; transform: translateX(-50%) rotate(20deg); font-family: 'Comic Neue'">
-            <h1 style="font-size: 80px; margin-bottom: 10px; background: linear-gradient(150deg, #EC3750,#FA743E,#EC3750,#FA743E); background-size: 400% 100%; animation: bg-move 0.5s linear infinite; background-clip: text; -webkit-background-clip: text; -moz-background-clip: text; color: transparent">hack club ftw</h1>
+            <h1 style="font-size: 80px; margin-bottom: 10px; background: linear-gradient(150deg, #EC3750,#FA743E,#EC3750,#FA743E); background-size: 400% 100%; color: #EC3750;">
+                hack club ftw
+            </h1>
             <p style="margin: auto; text-align: center; font-size: 20px; font-weight: bold;">Gus was here</p>
         </div>
 
@@ -101,10 +99,10 @@
             const messages = [
                 "Tweet to us on X: @hackclub",
                 "Create PCB's for free at hackclub.com/onboard",
-                "HCB's biggest competior just got outed for Money Laundering. Don't worry, we don't get caught. Join HCB today!",
+                "HCB's biggest competitor just got outed for Money Laundering. Don't worry, we don't get caught. Join HCB today!",
                 "Check out what our clubbers are doing at scrapbook.hackclub.com",
                 "I use Arc BTW.",
-                "ḧ̷̨͔͎́̄͝͝ę̷̡͕̈͝l̸͈̮͒p̸̨̩͚͓͑̽ ̴̳̀͗̿͝h̵̥͐̀͝͝ẽ̴͙͕̟̲̈̇l̸̻͓̜̎̇̌p̷̟̥͌ ̴̳̀͌̓h̷̹̞̲̦̑̀̉ḕ̶̬̦̫̣̑̇l̴̦̱̼͍͌͛̊̂p̴̗͆͋͒̄ ̸̮͎̖̪͊̔m̸͎̦̭̄ę̸͓͖̔ ̵̝̓̎͛̊ģ̴͓̭̖̓e̷̳̠͒̓̈́t̶͎̻̑ ̶̗̖͇̒̎́o̸̰͔̥͎͒̾u̴̱͌̈͛͝t̴̥̋̈́̀͝ͅ ̵͇͖͠ơ̷͚̝̈́͑f̶̢̱̪̓ ̸̦͙͊͒̒ẗ̵̟́h̵͕̪̺͗͊̕͝i̸̥̖͈͉̒s̴̢̱̀͑̀̋ ̵̧̲̬̺̔͆̚š̴͎̗̱͆ĉ̸̡̺̫͜r̶̢͙͔͓͐̄̏e̶̖̦̪͆͌̒̈́e̵̱͈͐̾̊̀n̵̜͎̭͖̎ ̵̫̟̗̉̐ẗ̷̪́͌h̷̞̗̰̮̍͝i̷͕͝ͅs̴̡̤̊̓͜ ̸̫͈͑͝p̴̝̻͊r̴̺͚͔̞͛̚ǐ̷̺͊̄s̴͇̜̾o̷͓͂͝n̸̢͚̐͋͆",
+                "ḧ̷̨͔͎́̄͝͝ę̷̡͕̈͝l̸͈̮͒p̸̨̩͚͓͑̽ ̴̳̀͗̿͝h̵̥͐̀͝͝ẽ̴͙͕̟̲̈̇l̸̻͓̜̎̇̌p̷̟̥͌ ̴̳̀͌̓h̷̹̞̲̦̑̀̉ḕ̶̬̦̫̣̑̇l̴̦̱̼͍͌͛̊̂p̴̗͆͋͒̄ ̸̮͎̖̪͊̔m̸͎̦̭̄ę̸͓͖̔ ̵̝̓̎͛̊ģ̴͓̭̖̓e̷̳̠͒̓̈́t̶͎̻̑ ̶̗̖͇̒̎́o̸̰͔̥͎͒̾u̴̱͌̈͛͝t̴̥̋̈́̀͝ͅ ̵͇͖͠ơ̷͚̝̈́͑f̶̢̱̪̓ ̸̦͙͊͒̒ẗ̵̪́͌h̷̞̗̰̮̍͝i̷͕͝ͅs̴̡̤̊̓͜ ̸̫͈͑͝p̴̝̻͊r̴̺͚͔̞͛̚ǐ̷̺͊̄s̴͇̜̾o̷͓͂͝n̸̢͚̐͋͆",
                 "computer says no",
                 "cats >> dogs any day",
                 "FROM THE SCREEN TO THE RING TO THE PEN TO THE KING WHERE'S MY CROWN THAT'S MY BLING"
