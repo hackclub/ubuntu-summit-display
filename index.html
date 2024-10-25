@@ -5,6 +5,13 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
         <style>
+            /* This is the bounding box of the TV– please don't change it */
+            /* I (msw) am setting this up so you all know what it'll actually look like on a real TV */
+            body {
+                aspect-ratio: 16 / 9;
+            }
+        </style>
+        <style>
             #message {
                 position: absolute;
                 top: 20px;
@@ -17,8 +24,6 @@
             }
             
             .center { float: right; } /* pfff, "center", who does that... */
-<<<<<< main
-          
          @keyframes wave {
             0% { transform: rotate(0deg); }
             25% { transform: rotate(10deg); }
@@ -34,9 +39,6 @@
             from { background-position-x: 100% }
             to { background-position-x: 0% }
         }
-=======
-        
->>>>>> main
         </style>
     </head>
     <body
@@ -49,12 +51,9 @@
         "
         id="body"
     >
-<<<<< main
-=======
 
 <CENTER><IMG SRC=https://f.peetz0r.nl/rr.gif></CENTER>
         
->>>>>> main
         <div>
             <div style="display: flex; justify-content: center">
                 <img
@@ -68,7 +67,6 @@
                     auto-deployed to this screen.
                 </h2>
                 <p>Hiii there how y'all doin (? -Vic</p>
-<<<<< main
                 <video width="640" height="480" autoplay controls onloadeddata="this.volume=1.0">
                     <source src="https://shattereddisk.github.io/rickroll/rickroll.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -81,10 +79,6 @@
                         video.muted = false;
                         video.volume = 1.0;
                     }, { once: true });
-=======
-                
-            
->>>>>> main
                 </script>                
                 <div style="float: bottom">
                 <h2 style="font-size: 4em; overflow: auto">@hackclub</h2>
@@ -105,7 +99,6 @@
                 src="https://raw.githubusercontent.com/hackclub/dinosaurs/main/cooll-dino.png"
             />
           <img src="https://raw.githubusercontent.com/hackclub/nest/refs/heads/main/brand/logo.png" width="400" class="wave-img" style="position: absolute; top: 20px; right: 20px;">
-<<<<< main
         </div>
 
         <div style="position: absolute; left: 60%; bottom: 10%; transform: translateX(-50%) rotate(20deg); font-family: 'Comic Neue'">
@@ -151,7 +144,7 @@
             setInterval(updateMessage, 60000);
 
             updateMessage();
-=======
+        </script>
         </div>
 
         <div style="position: absolute; left: 60%; bottom: 10%; transform: translateX(-50%) rotate(20deg); font-family: 'Comic Neue'">
@@ -162,8 +155,6 @@
         </div>
 
     
->>>>>> main
-        </script>
         <a href="https://hackclub.com/"
         ><img
           style="
