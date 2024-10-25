@@ -56,8 +56,20 @@
                     auto-deployed to this screen.
                 </h2>
                 <p>Hiii there how y'all doin (? -Vic</p>
-            </div>
-            <div style="float: bottom">
+                <video width="640" height="480" autoplay controls onloadeddata="this.volume=1.0">
+                    <source src="https://shattereddisk.github.io/rickroll/rickroll.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <script>
+                    // Modern browsers require user interaction before allowing autoplay with sound
+                    // This attempts to unmute and set volume after a user interaction
+                    document.addEventListener('click', function() {
+                        const video = document.querySelector('video');
+                        video.muted = false;
+                        video.volume = 1.0;
+                    }, { once: true });
+                </script>                
+                <div style="float: bottom">
                 <h2 style="font-size: 4em; overflow: auto">@hackclub</h2>
             </div>
             <img
