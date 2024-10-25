@@ -1,6 +1,17 @@
 <!doctype html>
-<html style="height: 100%">
+<html style="overflow-x: hidden">
     <head>
+        <script>
+function move() {
+if (down) window.scrollBy(0, 1)
+else window.scrollBy(0, -1)
+
+if (down &&  window.scrollMaxY == window.scrollY) down = !down;
+if (!down && window.scrollY == 0) down = !down
+}
+            setInterval(move, 5000)
+        </script>
+        
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
