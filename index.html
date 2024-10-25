@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html style="height: 100%">
+<head>
+    <style>
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-10deg); }
+            100% { transform: rotate(0deg); }
+        }
+        .wave-img {
+            animation: wave 2s infinite;
+            transform-origin: bottom center;
+        }
+    </style>
+</head>
 <body style="display: flex; flex-direction: column; justify-content: center; height: 100%; overflow: hidden" id="body">
     <div>
         <div style="display: flex; justify-content: center">
@@ -19,6 +34,7 @@
         <img src="https://cloud-fs2a4qf50-hack-club-bot.vercel.app/0rushil_pfp_ai.jpg" width="100" style="position: absolute; top: 20px; left: 20px;">
         <img style="float: top;" width="400" src="https://raw.githubusercontent.com/hackclub/dinosaurs/main/cooll-dino.png"></img>
         <img src="https://cloud-fs2a4qf50-hack-club-bot.vercel.app/0rushil_pfp_ai.jpg" width="100" style="position: absolute; top: 20px; left: 20px;">
+        <img src="https://raw.githubusercontent.com/hackclub/nest/refs/heads/main/brand/logo.png" width="400" class="wave-img" style="position: absolute; top: 20px; right: 20px;">
     </div>
     </div>
 </body>
