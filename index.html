@@ -1,22 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html style="height: 100%">
-<body style="display: flex; flex-direction: column; justify-content: center; height: 100%; overflow: hidden" id="body">
-    <div>
-        <div style="display: flex; justify-content: center">
-            <img src="https://cloud-4gopvnrou-hack-club-bot.vercel.app/07753065-hack_club_logo.png" width="800">
+    <head>
+        <style>
+            #message {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background-color: rgba(255, 255, 255, 0.8);
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                font-size: 1.2em;
+            }
+        </style>
+    </head>
+    <body
+        style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            overflow: hidden;
+        "
+        id="body"
+    >
+        <div>
+            <div style="display: flex; justify-content: center">
+                <img
+                    src="https://cloud-4gopvnrou-hack-club-bot.vercel.app/07753065-hack_club_logo.png"
+                    width="800"
+                />
+            </div>
+            <div style="float: left">
+                <h2 style="font-size: 4em; overflow: auto">
+                    Make a PR to hack.club/ubuntu,<br />and it'll get
+                    auto-deployed to this screen.
+                </h2>
+                <p>Hiii there how y'all doin (? -Vic</p>
+            </div>
+            <div style="float: bottom">
+                <h2 style="font-size: 4em; overflow: auto">@hackclub</h2>
+            </div>
+            <img
+                style="float: right"
+                width="400"
+                src="https://f.peetz0r.nl/sorry-fedora.png"
+            />
+            <img
+                src="https://cloud-fs2a4qf50-hack-club-bot.vercel.app/0rushil_pfp_ai.jpg"
+                width="100"
+                style="position: absolute; top: 20px; left: 20px"
+            />
+            <img
+                style="float: top"
+                width="400"
+                src="https://raw.githubusercontent.com/hackclub/dinosaurs/main/cooll-dino.png"
+            />
+            <img
+                src="https://cloud-fs2a4qf50-hack-club-bot.vercel.app/0rushil_pfp_ai.jpg"
+                width="100"
+                style="position: absolute; top: 20px; left: 20px"
+            />
         </div>
-        <div style="float: left">
-            <h2 style="font-size: 4em; overflow: auto;">Make a PR to hack.club/ubuntu,<br>and it'll get auto-deployed to this screen.</h2>
-            <p>Hiii there how y'all doin (? -Vic</p>
-        </div>
-        <div style="float: bottem">
-            <h2 style="font-size: 4em; overflow: auto;">@hackclub</h2>
-        </div>
-        <img style="float: right;" width="400" src="https://f.peetz0r.nl/sorry-fedora.png"></img>
-        <img src="https://cloud-fs2a4qf50-hack-club-bot.vercel.app/0rushil_pfp_ai.jpg" width="100" style="position: absolute; top: 20px; left: 20px;">
-        <img style="float: top;" width="400" src="https://raw.githubusercontent.com/hackclub/dinosaurs/main/cooll-dino.png"></img>
-        <img src="https://cloud-fs2a4qf50-hack-club-bot.vercel.app/0rushil_pfp_ai.jpg" width="100" style="position: absolute; top: 20px; left: 20px;">
-    </div>
-    </div>
-</body>
+
+        <div id="message">Hackclub</div>
+
+        <script>
+            const messages = [
+                "Tweet to us on X: @hackclub",
+                "Create PCB's for free at hackclub.com/onboard",
+                "HCB's biggest competior just got outed for Money Laundering. Don't worry, we don't get caught. Join HCB today!",
+                "Check out what our clubbers are doing at scrapbook.hackclub.com",
+                "I use Arc BTW.",
+            ];
+
+            let index = 0;
+
+            function updateMessage() {
+                index = (index + 1) % messages.length;
+                document.getElementById("message").innerText =
+                    "Message of the minute: " + messages[index];
+            }
+
+            setInterval(updateMessage, 60000);
+
+            updateMessage();
+        </script>
+    </body>
 </html>
