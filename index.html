@@ -12,6 +12,18 @@
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 font-size: 1.2em;
             }
+          
+         @keyframes wave {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-10deg); }
+            100% { transform: rotate(0deg); }
+        }
+        .wave-img {
+            animation: wave 2s infinite;
+            transform-origin: bottom center;
+        }
         </style>
     </head>
     <body
@@ -61,6 +73,7 @@
                 width="100"
                 style="position: absolute; top: 20px; left: 20px"
             />
+          <img src="https://raw.githubusercontent.com/hackclub/nest/refs/heads/main/brand/logo.png" width="400" class="wave-img" style="position: absolute; top: 20px; right: 20px;">
         </div>
 
         <div id="message">Hackclub</div>
