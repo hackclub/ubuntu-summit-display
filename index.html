@@ -52,6 +52,32 @@ if (!down && window.scrollY == 0) down = !down
             from { background-position-x: 100% }
             to { background-position-x: 0% }
         }
+        .🤔🤔🤔 {
+            display: grid;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -24;
+            width: 100vw;
+            height: 100vh;
+            align-items: center;
+            justify-items: center;
+            grid-template-areas:
+                '. . .'
+                '. 🤔 .'
+                '. . .';
+        }
+        .🤔🤔 {
+            width: 1rem;
+            height: 1rem;
+            transform: scale(0);
+            animation: 🤔 180s 30s linear alternate infinite;
+            grid-area: 🤔;
+        }
+        @keyframes 🤔 {
+            from {transform: scale(0)}
+            to {transform: scale(200)}
+        }
         </style>
 
         <style>
@@ -89,7 +115,7 @@ if (!down && window.scrollY == 0) down = !down
     </marquee>
 
 <CENTER><IMG SRC=https://f.peetz0r.nl/rr.gif></CENTER>
-        
+        <div class="🤔🤔🤔"><div class="🤔🤔">🤔</div></div>
         <div>
             <div style="display: flex; justify-content: center">
                 <img
