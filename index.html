@@ -2,29 +2,41 @@
 <html style="overflow-x: hidden">
     <head>
         <script>
-let down = false;
-            
-function move() {
-if (down) window.scrollBy(0, 1)
-else window.scrollBy(0, -1)
+    let down = true; // Start scrolling down
 
-if (down &&  window.scrollMaxY == window.scrollY) down = !down;
-if (!down && window.scrollY == 0) down = !down
-}
-            setInterval(move, 1000)
+    function move() {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        
+        if (down) {
+            window.scrollBy(0, 1); // Scroll down by 1px
+            if (window.scrollY >= maxScroll) down = false; // Reached bottom, switch direction
+        } else {
+            window.scrollBy(0, -1); // Scroll up by 1px
+            if (window.scrollY <= 0) down = true; // Reached top, switch direction
+        }
+    }
+
+setInterval(move, 1000); // Faster scroll (10ms)
         </script>
         
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
         <style>
-            /* This is the bounding box of the TV– please don't change it */
-            /* I (msw) am setting this up so you all know what it'll actually look like on a real TV */
             body {
                 aspect-ratio: 16 / 9;
+                margin: 0;
+                padding: 0;
+                background-image: url('jammy-jellyfish-wallpaper.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                height: 100vh;
+                width: 100vw;
+                overflow: hidden;
             }
-        </style>
-        <style>
+
             #message {
                 position: absolute;
                 top: 20px;
@@ -35,149 +47,116 @@ if (!down && window.scrollY == 0) down = !down
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 font-size: 1.2em;
             }
-            
-            .center { float: right; } /* pfff, "center", who does that... */
-         @keyframes wave {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(10deg); }
-            50% { transform: rotate(0deg); }
-            75% { transform: rotate(-10deg); }
-            100% { transform: rotate(0deg); }
-        }
-        .wave-img {
-           animation: wave 2s ease-in-out infinite;
-           transform-origin: bottom center;
-        }
-        @keyframes bg-move {
-            from { background-position-x: 100% }
-            to { background-position-x: 0% }
-        }
-        .🤔🤔🤔 {
-            display: grid;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -24;
-            width: 100vw;
-            height: 100vh;
-            align-items: center;
-            justify-items: center;
-            grid-template-areas:
-                '. . .'
-                '. 🤔 .'
-                '. . .';
-        }
-        .🤔🤔 {
-            width: 1rem;
-            height: 1rem;
-            transform: scale(0);
-            animation: 🤔 180s 30s linear alternate infinite;
-            grid-area: 🤔;
-        }
-        @keyframes 🤔 {
-            from {transform: scale(0)}
-            to {transform: scale(200)}
-        }
-        </style>
 
-        <style>
+            .wave-img {
+                animation: wave 2s ease-in-out infinite;
+                transform-origin: bottom center;
+            }
+
+            @keyframes wave {
+                0% { transform: rotate(0deg); }
+                25% { transform: rotate(10deg); }
+                50% { transform: rotate(0deg); }
+                75% { transform: rotate(-10deg); }
+                100% { transform: rotate(0deg); }
+            }
+
+            @keyframes bg-move {
+                from { background-position-x: 100%; }
+                to { background-position-x: 0%; }
+            }
+
+            .🤔🤔🤔 {
+                display: grid;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -24;
+                width: 100vw;
+                height: 100vh;
+                align-items: center;
+                justify-items: center;
+                grid-template-areas: '. . .' '. 🤔 .' '. . .';
+            }
+
+            .🤔🤔 {
+                width: 1rem;
+                height: 1rem;
+                transform: scale(0);
+                animation: 🤔 180s 30s linear alternate infinite;
+                grid-area: 🤔;
+            }
+
+            @keyframes 🤔 {
+                from { transform: scale(0); }
+                to { transform: scale(200); }
+            }
+
+            .dvd {
+                animation: rainbow 60s linear infinite;
+            }
+
             @keyframes rainbow {
-    0%, 100% {
-        filter: hue-rotate(0deg);
-    }
-    33% {
-        filter: hue-rotate(120deg);
-    }
-    66% {
-        filter: hue-rotate(240deg);
-    }
-}
-
-.dvd {
-    animation: rainbow 60s linear infinite;
-}
+                0%, 100% { filter: hue-rotate(0deg); }
+                33% { filter: hue-rotate(120deg); }
+                66% { filter: hue-rotate(240deg); }
+            }
         </style>
     </head>
-    <body
-        style="
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-        "
-        id="body"
-    >
-    <img src="Hypercam_2_watermark.png" style="position: fixed; top: 0; left: 0; z-index: 2;" height="24px">
-    <marquee behavior="alternate" direction="down" width="100%" height="100%" style="position: fixed; z-index: -1;">
-        <marquee behavior="alternate" direction="left" width="100%">
-            <img class="dvd" src="ubuntu.png" width="20%"/>
+    <body>
+        <img src="Hypercam_2_watermark.png" style="position: fixed; top: 0; left: 0; z-index: 2;" height="24px">
+        <marquee behavior="alternate" direction="down" width="100%" height="100%" style="position: fixed; z-index: -1;">
+            <marquee behavior="alternate" direction="left" width="100%">
+                <img class="dvd" src="ubuntu.png" width="20%"/>
+            </marquee>
         </marquee>
-    </marquee>
 
-<CENTER><IMG SRC=https://f.peetz0r.nl/rr.gif></CENTER>
-        <div class="🤔🤔🤔"><div class="🤔🤔">🤔</div></div>
+        <CENTER><IMG SRC="https://f.peetz0r.nl/rr.gif"></CENTER>
+
+        <div class="🤔🤔🤔">
+            <div class="🤔🤔">🤔</div>
+        </div>
+
         <div>
             <div style="display: flex; justify-content: center">
-                <img
-                    src="https://cloud-4gopvnrou-hack-club-bot.vercel.app/07753065-hack_club_logo.png"
-                    width="800"
-                />
+                <img src="https://cloud-4gopvnrou-hack-club-bot.vercel.app/07753065-hack_club_logo.png" width="800"/>
             </div>
             <div style="float: left">
                 <h2 style="font-size: 4em; overflow: auto">
-                    Make a PR to hack.club/ubuntu,<br />and it'll get
-                    auto-deployed to this screen.
+                    Make a PR to hack.club/ubuntu,<br />and it'll get auto-deployed to this screen.
                 </h2>
                 <p>Hiii there how y'all doin (? -Vic</p>
-                <div style="float: bottom">
                 <h2 style="font-size: 4em; overflow: auto">@hackclub</h2>
             </div>
-            <img
-                style="float: right"
-                width="400"
-                src="https://github.com/user-attachments/assets/878ff7c9-b4f4-48bf-acd1-9bff853f246b"
-            />
-            <img
-                src="https://cloud-fs2a4qf50-hack-club-bot.vercel.app/0rushil_pfp_ai.jpg"
-                width="100"
-                style="position: absolute; top: 20px; left: 20px"
-            />
-            <img
-                style="float: top"
-                width="400"
-                src="https://raw.githubusercontent.com/hackclub/dinosaurs/main/cooll-dino.png"
-            />
-          <img src="https://raw.githubusercontent.com/hackclub/nest/refs/heads/main/brand/logo.png" width="400" class="wave-img" style="position: absolute; top: 20px; right: 20px;">
-          <img src="https://raw.githubusercontent.com/PonderSlime/Hack-Club-Stickers/refs/heads/main/files/disney_sticker/Disney%20Sticker.svg"" width="200" class="wave-img" style="position: absolute; top: 400px; right: 200px;">
+            <img src="https://github.com/user-attachments/assets/878ff7c9-b4f4-48bf-acd1-9bff853f246b" width="400" style="float: right"/>
+            <img src="https://cloud-fs2a4qf50-hack-club-bot.vercel.app/0rushil_pfp_ai.jpg" width="100" style="position: absolute; top: 20px; left: 20px"/>
+            <img src="https://raw.githubusercontent.com/hackclub/dinosaurs/main/cooll-dino.png" width="400" style="float: top"/>
+            <img src="https://raw.githubusercontent.com/hackclub/nest/refs/heads/main/brand/logo.png" width="400" class="wave-img" style="position: absolute; top: 20px; right: 20px;">
+            <img src="https://raw.githubusercontent.com/PonderSlime/Hack-Club-Stickers/refs/heads/main/files/disney_sticker/Disney%20Sticker.svg" width="200" class="wave-img" style="position: absolute; top: 400px; right: 200px;">
         </div>
 
         <div style="position: absolute; left: 60%; bottom: 10%; transform: translateX(-50%) rotate(20deg); font-family: 'Comic Neue'">
-            <h1 style="font-size: 80px; margin-bottom: 10px; background: linear-gradient(150deg, #EC3750,#FA743E,#EC3750,#FA743E); background-size: 400% 100%; animation: bg-move 0.5s linear infinite; background-clip: text; -webkit-background-clip: text; -moz-background-clip: text; color: transparent">hack club ftw</h1>
-            <p style="margin: auto; text-align: center; font-size: 20px; font-weight: bold;">Gus was here</p>
+            <h1 style="font-size: 80px; background: linear-gradient(150deg, #EC3750, #FA743E); background-size: 400% 100%; animation: bg-move 0.5s linear infinite; background-clip: text; color: transparent;">hack club ftw</h1>
+            <p style="text-align: center; font-size: 20px; font-weight: bold;">Gus was here</p>
         </div>
-        <p>pizzalover125 was here...</p>
 
+        <p>pizzalover125 was here...</p>
         <div id="message">Hackclub</div>
 
         <script>
             const messages = [
                 "Tweet to us on X: @hackclub",
                 "Create PCBs for free at hackclub.com/onboard",
-                "Check out what our clubbers are doing at scrapbook.hackclub.com",
+                "Check out scrapbook.hackclub.com",
                 "I use Arc BTW.",
-                "Ask us about why Elijah Spitzer is the coolest person.",
+                "Elijah Spitzer is the coolest person.",
                 "computer says no",
                 "cats >> dogs any day",
-                "We like ducks, share your opinion with us at hackclub@duck.com",
-                "FROM THE SCREEN TO THE RING TO THE PEN TO THE KING WHERE'S MY CROWN THAT'S MY BLING",
+                "We like ducks, share your opinion at hackclub@duck.com",
                 "I use Ubuntu, BTW.",
-                "Ask us about our early office in Moscow.",
-                "Plz donate to Hackclub we need money.",
-                "Ask if Zach speaks Russian and email the answer to hackclub@duck.com",
-                "Hi, there. I knew you were going to see this.",
-                "If you like this board let us know at: HackClub@duck.com",
+                "Plz donate to Hackclub.",
+                "Ask if Zach speaks Russian at hackclub@duck.com",
                 "Check out zenithhacks.org",
-                "Nothing much, how Ubunt-u?",
                 "More like whack club",
             ];
 
@@ -185,38 +164,17 @@ if (!down && window.scrollY == 0) down = !down
 
             function updateMessage() {
                 index = (index + 1) % messages.length;
-                document.getElementById("message").innerText =
-                    "Message of the minute: " + messages[index];
+                document.getElementById("message").innerText = "Message of the minute: " + messages[index];
             }
 
             setInterval(updateMessage, 60000);
-
             updateMessage();
         </script>
+
         <script src="https://raw.githubusercontent.com/adryd325/oneko.js/refs/heads/main/oneko.js"></script>
-        </div>
 
-        <div style="position: absolute; left: 60%; bottom: 10%; transform: translateX(-50%) rotate(20deg); font-family: 'Comic Neue'">
-            <h1 style="font-size: 80px; margin-bottom: 10px; background: linear-gradient(150deg, #EC3750,#FA743E,#EC3750,#FA743E); background-size: 400% 100%; color: #EC3750;">
-                hack club ftw
-            </h1>
-            <p style="margin: auto; text-align: center; font-size: 20px; font-weight: bold;">Gus was here</p>
-        </div>
-
-    
-        <a href="https://hackclub.com/"
-        ><img
-          style="
-            position: absolute;
-            top: 0;
-            left: 10px;
-            border: 0;
-            width: 256px;
-            z-index: 999;
-          "
-          src="https://assets.hackclub.com/flag-orpheus-left.svg"
-          alt="Hack Club"
-      /></a>
+        <a href="https://hackclub.com/">
+            <img src="https://assets.hackclub.com/flag-orpheus-left.svg" alt="Hack Club" style="position: absolute; top: 0; left: 10px; width: 256px; z-index: 999;">
+        </a>
     </body>
-
 </html>
